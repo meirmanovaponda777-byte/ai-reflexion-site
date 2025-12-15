@@ -1,1 +1,1 @@
-# ai-reflectiion-site
+# ai-reflection-site
