@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>ИИ-помощник психолога</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
 <header>
     <h1>Онлайн-инструмент для текстовой саморефлексии</h1>
     <div>
@@ -16,30 +15,19 @@
 </header>
 
 <main>
-    <p id="description">
-        Этот сервис предназначен для анализа текста с использованием искусственного интеллекта.
-        Он помогает структурировать мысли, обратить внимание на повторяющиеся темы и задать вопросы для саморефлексии.
-    </p>
-
-    <textarea id="userText" placeholder="Введите текст здесь..." rows="6" cols="50"></textarea><br>
-
+    <p id="description">Текст для анализа...</p>
+    <textarea id="userText" rows="6" cols="50"></textarea><br>
     <label for="genderSelect">Выберите пол:</label>
     <select id="genderSelect">
         <option value="any">Любой</option>
         <option value="male">Мужской</option>
         <option value="female">Женский</option>
     </select><br><br>
-
     <button id="analyzeBtn">Проанализировать текст</button>
-
-    <div id="result" style="margin-top:20px; border:1px solid #ccc; padding:10px;"></div>
-
-    <p id="disclaimer">
-        Данный сервис не является психологической консультацией, не ставит диагнозы и не заменяет работу с психологом.
-        Результаты анализа носят ознакомительный характер.
-    </p>
+    <div id="result"></div>
+    <p id="disclaimer">Данный сервис не является консультацией.</p>
 </main>
 
-<script src="/static/script.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
