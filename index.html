@@ -3,36 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>ИИ-помощник психолога</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Flask static -->
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <header>
-        <h1>Онлайн-инструмент для текстовой саморефлексии</h1>
-        <div>
-            <button id="ruBtn">RU</button>
-            <button id="kzBtn">KZ</button>
-        </div>
-    </header>
 
-    <main>
-        <p id="description">
-            Этот сервис предназначен для анализа текста с использованием искусственного интеллекта.
-            Он помогает структурировать мысли, обратить внимание на повторяющиеся темы и задать вопросы для саморефлексии.
-        </p>
+<header>
+    <h1>Онлайн-инструмент для текстовой саморефлексии</h1>
+    <div>
+        <button id="ruBtn">RU</button>
+        <button id="kzBtn">KZ</button>
+    </div>
+</header>
 
-        <textarea id="userText" placeholder="Введите текст здесь..." rows="6" cols="50"></textarea><br>
-        <button id="analyzeBtn">Проанализировать текст</button>
+<main>
+    <p id="description">
+        Этот сервис предназначен для анализа текста с использованием искусственного интеллекта.
+        Он помогает структурировать мысли, обратить внимание на повторяющиеся темы и задать вопросы для саморефлексии.
+    </p>
 
-        <div id="result" style="margin-top:20px; border:1px solid #ccc; padding:10px;"></div>
+    <textarea id="userText" placeholder="Введите текст здесь..." rows="6" cols="50"></textarea><br>
 
-        <p id="disclaimer">
-            Данный сервис не является психологической консультацией, не ставит диагнозы и не заменяет работу с психологом.
-            Результаты анализа носят ознакомительный характер.
-        </p>
-    </main>
+    <button id="analyzeBtn">Проанализировать текст</button>
 
-    <script src="script.js"></script>
+    <div id="result" style="margin-top:20px; border:1px solid #ccc; padding:10px;"></div>
+
+    <p id="disclaimer">
+        Данный сервис не является психологической консультацией, не ставит диагнозы и не заменяет работу с психологом.
+        Результаты анализа носят ознакомительный характер.
+    </p>
+</main>
+
+<!-- Flask static -->
+<script src="/static/script.js"></script>
+
 </body>
 </html>
+
 
  
