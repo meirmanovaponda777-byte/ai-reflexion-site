@@ -5,6 +5,7 @@ const description = document.getElementById('description');
 const disclaimer = document.getElementById('disclaimer');
 const analyzeBtn = document.getElementById('analyzeBtn');
 const result = document.getElementById('result');
+const userText = document.getElementById('userText');
 
 // Тексты на двух языках
 const texts = {
@@ -32,26 +33,31 @@ function setLanguage(lang) {
 ruBtn.addEventListener('click', () => setLanguage('ru'));
 kzBtn.addEventListener('click', () => setLanguage('kz'));
 
-// Отправка текста на сервер Flask
+// Отправка текста на сервер Flask с указанием языка и пола
 analyzeBtn.addEventListener("click", async () => {
-    const text = document.getElementById("userText").value;
-    if (!text.trim()) {
+    const text = userText.value.trim();
+    if (!text) {
         alert("Введите текст!");
         return;
     }
+
+    // Определяем язык страницы
+    const lang = document.documentElement.lang || 'ru';
+    const gender = 'any'; // можно заменить на 'male'/'female' или добавить поле ввода для пользователя
 
     try {
         const response = await fetch("/analyze", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text })
+            body: JSON.stringify({ text, lang, gender })
         });
 
         const data = await response.json();
         result.textContent = data.result;
     } catch (error) {
-        result.textContent = "Ошибка соединения с сервером.";
+        result.textContent = "Ошибка сервера ИИ.";
         console.error(error);
     }
 });
+
 
