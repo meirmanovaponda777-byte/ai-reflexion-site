@@ -32,7 +32,7 @@ function setLanguage(lang) {
 ruBtn.addEventListener('click', () => setLanguage('ru'));
 kzBtn.addEventListener('click', () => setLanguage('kz'));
 
-// Кнопка анализа (пока только заглушка)
+// Кнопка анализа 
 analyzeBtn.addEventListener('click', () => {
     const userText = document.getElementById('userText').value;
     if(userText.trim() === '') {
