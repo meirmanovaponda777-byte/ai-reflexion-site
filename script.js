@@ -28,32 +28,31 @@ function setLanguage(lang) {
     result.textContent = ''; // обнуляем предыдущий результат
 }
 
-// События на кнопки
+// События на кнопки переключения языка
 ruBtn.addEventListener('click', () => setLanguage('ru'));
 kzBtn.addEventListener('click', () => setLanguage('kz'));
 
-// Кнопка анализа 
-analyzeBtn.addEventListener('click', () => {
-    const userText = document.getElementById('userText').value;
-    if(userText.trim() === '') {
-        result.textContent = "Введите текст для анализа!";
-    } else {
-        result.textContent = "Здесь появится анализ текста (пока заглушка).";
+// Кнопка анализа текста через сервер Flask
+analyzeBtn.addEventListener("click", async () => {
+    const text = document.getElementById("userText").value;
+    if (!text.trim()) {
+        alert("Введите текст!");
+        return;
+    }
+
+    try {
+        const response = await fetch("/analyze", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ text })
+        });
+
+        const data = await response.json();
+        result.textContent = data.result;
+    } catch (error) {
+        result.textContent = "Ошибка соединения с сервером.";
+        console.error(error);
     }
 });
-document.getElementById("analyzeBtn").addEventListener("click", async () => {
-    const text = document.getElementById("userText").value;
-    if (!text) return alert("Введите текст!");
 
-    const response = await fetch("http://127.0.0.1:5000/analyze", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ text })
-    });
-
-    const data = await response.json();
-    document.getElementById("result").innerText = data.result;
-});
 
