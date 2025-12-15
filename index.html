@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>ИИ-помощник психолога</title>
-
-    <!-- Flask static -->
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
@@ -25,6 +23,13 @@
 
     <textarea id="userText" placeholder="Введите текст здесь..." rows="6" cols="50"></textarea><br>
 
+    <label for="genderSelect">Выберите пол:</label>
+    <select id="genderSelect">
+        <option value="any">Любой</option>
+        <option value="male">Мужской</option>
+        <option value="female">Женский</option>
+    </select><br><br>
+
     <button id="analyzeBtn">Проанализировать текст</button>
 
     <div id="result" style="margin-top:20px; border:1px solid #ccc; padding:10px;"></div>
@@ -35,11 +40,6 @@
     </p>
 </main>
 
-<!-- Flask static -->
 <script src="/static/script.js"></script>
-
 </body>
 </html>
-
-
- 
